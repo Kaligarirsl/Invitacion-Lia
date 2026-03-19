@@ -86,7 +86,7 @@ footer{
 </style>
 
 </head>
-<body>
+<body onclick="playAudio()">
 
 <div class="card">
 
@@ -107,10 +107,6 @@ footer{
 Confirmar asistencia
 </button>
 
-<button onclick="agendar()">
-Agregar al calendario
-</button>
-
 <div id="msg" class="confirmado"></div>
 
 <footer>
@@ -118,48 +114,32 @@ Prepárate para una fiesta K-pop llena de música, baile y energía idol 💜
 </footer>
 
 </div>
-<audio id="audio" autoplay loop>
+
+
+<audio id="audio" loop>
     <source src="sonido.mp3" type="audio/mpeg">
-    Tu navegador no admite el elemento de audio.
 </audio>
+
+
 <script>
+
+let audioIniciado = false;
+
+function playAudio(){
+
+    if(!audioIniciado){
+
+        document.getElementById("audio").play();
+        audioIniciado = true;
+
+    }
+
+}
 
 function confirmar(){
 
     document.getElementById("msg").innerHTML =
     "✅ Asistencia confirmada 💜";
-
-}
-
-
-
-function agendar(){
-
-    const titulo = "Cumpleaños de Lia";
-    const descripcion = "Fiesta temática Guerreras K-pop";
-    const lugar = "Casa de Lia";
-    const inicio = "20260524T160000";
-    const fin = "20260524T190000";
-
-    const ics =
-`BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-SUMMARY:${titulo}
-DESCRIPTION:${descripcion}
-LOCATION:${lugar}
-DTSTART:${inicio}
-DTEND:${fin}
-END:VEVENT
-END:VCALENDAR`;
-
-    const blob = new Blob([ics], { type: 'text/calendar' });
-    const url = window.URL.createObjectURL(blob);
-
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = "recordatorio.ics";
-    a.click();
 
 }
 
