@@ -9,98 +9,275 @@
 <style>
 
 body{
-    margin:0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg,#ff00cc,#3333ff,#00ffee);
-    background-size:400% 400%;
-    animation:fondo 10s infinite alternate;
-    color:white;
-    text-align:center;
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:black;
+color:white;
+text-align:center;
+overflow:hidden;
+}
+
+/* pantalla inicio */
+
+#inicio{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(45deg,#ff00cc,#3300ff,#00ffee);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:10;
+
+}
+
+#inicio button{
+
+padding:20px;
+font-size:22px;
+border:none;
+border-radius:10px;
+background:#ff00ff;
+color:white;
+box-shadow:0 0 20px #ff00ff;
+cursor:pointer;
+
+}
+
+
+/* fondo animado */
+
+body.fondo{
+
+background: linear-gradient(135deg,#ff00cc,#3333ff,#00ffee);
+background-size:400% 400%;
+animation:fondo 8s infinite alternate;
+
 }
 
 @keyframes fondo{
-    0%{background-position:0%}
-    100%{background-position:100%}
+
+0%{background-position:0%}
+100%{background-position:100%}
+
 }
+
+
+/* tarjeta */
 
 .card{
 
-    margin:40px auto;
-    max-width:500px;
-    background:rgba(0,0,0,0.6);
-    padding:20px;
-    border-radius:20px;
-    box-shadow:0 0 20px #ff00ff;
+margin:40px auto;
+max-width:500px;
+background:rgba(0,0,0,0.6);
+padding:20px;
+border-radius:20px;
+box-shadow:0 0 30px #ff00ff;
 
 }
 
 h1{
-    font-size:40px;
-    color:#ff66ff;
+
+font-size:40px;
+color:#ff66ff;
+text-shadow:0 0 20px #ff00ff;
+
 }
 
 h2{
-    color:#00ffff;
+
+color:#00ffff;
+text-shadow:0 0 10px #00ffff;
+
 }
 
 .kpop{
-    font-size:22px;
-    color:#ffcc00;
-    margin-bottom:20px;
+
+font-size:22px;
+color:#ffcc00;
+
 }
 
 button{
 
-    padding:12px 20px;
-    border:none;
-    border-radius:10px;
-    margin:10px;
-    font-size:16px;
-    cursor:pointer;
-    background:#ff00ff;
-    color:white;
-    box-shadow:0 0 10px #ff00ff;
+padding:12px 20px;
+border:none;
+border-radius:10px;
+margin:10px;
+font-size:16px;
+cursor:pointer;
+background:#ff00ff;
+color:white;
+box-shadow:0 0 15px #ff00ff;
+
 }
 
 button:hover{
-    background:#00ffff;
-    box-shadow:0 0 20px #00ffff;
+
+background:#00ffff;
+box-shadow:0 0 25px #00ffff;
+
 }
 
 .confirmado{
 
-    margin-top:20px;
-    font-size:20px;
-    color:#00ff99;
+margin-top:20px;
+font-size:20px;
+color:#00ff99;
 
 }
 
-footer{
 
-    margin-top:20px;
-    font-size:14px;
-    opacity:0.7;
+/* partículas */
+
+.particula{
+
+position:absolute;
+width:5px;
+height:5px;
+background:white;
+border-radius:50%;
+animation:caer linear infinite;
 
 }
 
+@keyframes caer{
+
+0%{transform:translateY(-10px)}
+100%{transform:translateY(100vh)}
+
+}
+
+.nombre{
+
+font-size:32px;
+font-weight:bold;
+
+animation:colorKpop 3s infinite;
+
+text-shadow:
+0 0 5px #fff,
+0 0 10px #ff00ff,
+0 0 20px #00ffff,
+0 0 30px #ff00ff;
+
+}
+
+
+@keyframes colorKpop{
+
+0%{
+
+color:#ff00ff;
+text-shadow:0 0 10px #ff00ff,0 0 20px #ff00ff;
+
+}
+
+25%{
+
+color:#00ffff;
+text-shadow:0 0 10px #00ffff,0 0 20px #00ffff;
+
+}
+
+50%{
+
+color:#ffff00;
+text-shadow:0 0 10px #ffff00,0 0 20px #ffff00;
+
+}
+
+75%{
+
+color:#ff6600;
+text-shadow:0 0 10px #ff6600,0 0 20px #ff6600;
+
+}
+
+100%{
+
+color:#ff00ff;
+text-shadow:0 0 10px #ff00ff,0 0 20px #ff00ff;
+
+}
+
+}
+.imagen-fiesta{
+
+margin:15px auto;
+width:200px;
+height:200px;
+
+border-radius:15px;
+overflow:hidden;
+
+border:4px solid #ff00ff;
+
+box-shadow:
+0 0 10px #ff00ff,
+0 0 20px #00ffff,
+0 0 30px #ff00ff;
+
+animation:brilloImg 3s infinite;
+
+}
+
+.imagen-fiesta img{
+
+width:100%;
+height:100%;
+object-fit:cover;
+
+}
+
+@keyframes brilloImg{
+
+0%{box-shadow:0 0 10px #ff00ff,0 0 20px #ff00ff;}
+50%{box-shadow:0 0 10px #00ffff,0 0 25px #00ffff;}
+100%{box-shadow:0 0 10px #ff00ff,0 0 20px #ff00ff;}
+
+}
 </style>
 
 </head>
-<body onclick="playAudio()">
+<body>
+
+<div id="inicio">
+
+<h1>⚔️ Invitación K-POP ⚔️</h1>
+
+<button onclick="entrar()">
+Entrar a la fiesta
+</button>
+
+</div>
+
+
+
+<div id="contenido" style="display:none">
 
 <div class="card">
 
-<h1>🎂 Lia cumple años 🎂</h1>
+<h1>🎂 CUMPLEAÑOS 10 🎂</h1>
 
 <div class="kpop">
-⚔️ Fiesta temática Guerreras K-POP ⚔️
+⚔️ Guerreras K-POP ⚔️
 </div>
 
-<h2>Lia Castillo Méndez</h2>
+<h2 class="nombre">Lia Castillo Méndez</h2>
 
+<div class="imagen-fiesta">
+    <img src="foto.jpg">
+</div>
 <p>
+
 📅 24 de mayo 2026<br>
 ⏰ 4:00 PM
+
 </p>
 
 <button onclick="confirmar()">
@@ -109,39 +286,64 @@ Confirmar asistencia
 
 <div id="msg" class="confirmado"></div>
 
-<footer>
-Prepárate para una fiesta K-pop llena de música, baile y energía idol 💜
-</footer>
+</div>
 
 </div>
 
 
+
 <audio id="audio" loop>
-    <source src="sonido.mp3" type="audio/mpeg">
+<source src="sonido.mp3" type="audio/mpeg">
 </audio>
+
 
 
 <script>
 
-let audioIniciado = false;
 
-function playAudio(){
+function entrar(){
 
-    if(!audioIniciado){
+document.getElementById("inicio").style.display="none";
 
-        document.getElementById("audio").play();
-        audioIniciado = true;
+document.getElementById("contenido").style.display="block";
 
-    }
+document.body.classList.add("fondo");
+
+document.getElementById("audio").play();
+
+crearParticulas();
 
 }
+
+
 
 function confirmar(){
 
-    document.getElementById("msg").innerHTML =
-    "✅ Asistencia confirmada 💜";
+document.getElementById("msg").innerHTML="✅ Asistencia confirmada 💜";
 
 }
+
+
+
+function crearParticulas(){
+
+for(let i=0;i<40;i++){
+
+let p=document.createElement("div");
+
+p.className="particula";
+
+p.style.left=Math.random()*100+"%";
+
+p.style.animationDuration=(3+Math.random()*5)+"s";
+
+document.body.appendChild(p);
+
+}
+
+}
+
+
 
 </script>
 
