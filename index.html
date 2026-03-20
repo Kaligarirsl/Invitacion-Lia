@@ -226,7 +226,7 @@ animation:brilloImg 3s infinite;
 
 }
 
-.imagen-fiesta img{
+.imagen-fiesta video{
 
 width:100%;
 height:100%;
@@ -271,7 +271,11 @@ Entrar a la fiesta
 <h2 class="nombre">Lia Castillo Méndez</h2>
 
 <div class="imagen-fiesta">
-    <img src="foto.jpeg">
+
+<video autoplay muted loop playsinline>
+    <source src="video.mp4" type="video/mp4">
+</video>
+
 </div>
 <p>
 
@@ -281,7 +285,11 @@ Entrar a la fiesta
 </p>
 
 <button onclick="confirmar()">
-Confirmar asistencia
+Confirmar asistencia por Whatsapp
+</button>
+
+<button onclick="verMapa()">
+Ver ubicación
 </button>
 
 <div id="msg" class="confirmado"></div>
@@ -316,14 +324,14 @@ crearParticulas();
 }
 
 
+function verMapa(){
 
-function confirmar(){
-
-document.getElementById("msg").innerHTML="✅ Asistencia confirmada 💜";
+window.open(
+"https://maps.app.goo.gl/TDEynt9cssW5kAb97",
+"_blank"
+);
 
 }
-
-
 
 function crearParticulas(){
 
