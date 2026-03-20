@@ -14,7 +14,10 @@ font-family:Arial, Helvetica, sans-serif;
 background:black;
 color:white;
 text-align:center;
-overflow:hidden;
+
+min-height:100vh;
+overflow-y:auto;
+overflow-x:hidden;
 }
 
 /* pantalla inicio */
@@ -71,8 +74,10 @@ animation:fondo 8s infinite alternate;
 
 .card{
 
-margin:40px auto;
+margin:20px auto;
 max-width:500px;
+width:90%;
+
 background:rgba(0,0,0,0.6);
 padding:20px;
 border-radius:20px;
@@ -258,8 +263,7 @@ Entrar a la fiesta
 
 
 
-<div id="contenido" style="display:none">
-
+<div id="contenido" style="display:none; min-height:100vh;">
 <div class="card">
 
 <h1>🎂 CUMPLEAÑOS 10 🎂</h1>
